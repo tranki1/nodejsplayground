@@ -9,11 +9,9 @@
 </head>
 
 <body>
-  <h1>{{pageTitle}}</h1>
-  <p>Welcome {{name}}</p>
-  <footer>
-    <p>Copyright {{currentYear}}</p>
-  </footer>
+  {{> header}}
+  <p>Welcome {{screamIt name}}</p>
+  {{> footer}}
 </body>
 
 </html>
