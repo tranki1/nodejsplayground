@@ -15,7 +15,7 @@ const geocodeAddress = (address, callback) => {
       } else if (body.status === 'ZERO_RESULTS') {
         callback('No result for this address');
       } else if (body.status === 'OK') {
-        callback({
+        callback(undefined, {
           address: body.results[0].formatted_address,
           longitute: body.results[0].geometry.location.lng,
           latitude: body.results[0].geometry.location.lat
