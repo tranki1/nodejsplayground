@@ -1,10 +1,27 @@
 const express = require('express');
 const hbs = require('hbs');
+const fs = require('fs');
 
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
+
+app.use((req, res, next) => {
+  let now = new Date().toString();
+  let log = `${now}:${req.method} ${req.url}`;
+  console.log(log);
+  fs.appendFileSync('server.log', log + '\n');
+
+  //needed for the app to process
+  next();
+});
+
+//maintainance mode
+// app.use((req, res, next) => {
+//   res.render('maintainance.hbs');
+// });
+
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
