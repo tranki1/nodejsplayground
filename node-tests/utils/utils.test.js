@@ -1,42 +1,45 @@
 const utils = require('./utils');
 const expect = require('expect');
 
-it('should add two numbers', () => {
-  let res = utils.add(44, 11);
-  // if (res !== 55) {
-  //   throw new Error(`expect 55 but got ${res}`);
-  // }
+describe('Utils', () => {
+  describe('#add', () => {
+    it('should add two numbers', () => {
+      let res = utils.add(44, 11);
+      // if (res !== 55) {
+      //   throw new Error(`expect 55 but got ${res}`);
+      // }
+      expect(res)
+        .toBe(55)
+        .toBeA('number');
+    });
 
-  expect(res)
-    .toBe(55)
-    .toBeA('number');
-});
-
-it('should async add to number', done => {
-  utils.asyncAdd(4, 3, sum => {
-    expect(sum)
-      .toBe(7)
-      .toBeA('number');
-    done();
+    it('should async add to number', done => {
+      utils.asyncAdd(4, 3, sum => {
+        expect(sum)
+          .toBe(7)
+          .toBeA('number');
+        done();
+      });
+    });
   });
-});
 
-it('should async square a number', done => {
-  utils.asyncSquare(4, sum => {
-    expect(sum)
-      .toBe(16)
-      .toBeA('number');
-    done();
+  it('should async square a number', done => {
+    utils.asyncSquare(4, sum => {
+      expect(sum)
+        .toBe(16)
+        .toBeA('number');
+      done();
+    });
   });
-});
 
-it('should square', () => {
-  let res = utils.square(3);
-  // if (res !== 9) {
-  //   throw new Error(`expect 9 but got ${res}`);
-  // }
+  it('should square', () => {
+    let res = utils.square(3);
+    // if (res !== 9) {
+    //   throw new Error(`expect 9 but got ${res}`);
+    // }
 
-  expect(res).toBe(9);
+    expect(res).toBe(9);
+  });
 });
 
 it('should set firstname and lastname', () => {
