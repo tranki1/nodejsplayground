@@ -207,7 +207,6 @@ describe('PATCH /todos/:id', () => {
         text
       })
       .expect(404)
-
       .end(done);
   });
 
