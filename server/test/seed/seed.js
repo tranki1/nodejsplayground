@@ -14,7 +14,7 @@ const users = [
     tokens: [
       {
         access: 'auth',
-        token: jwt.sign({ id: userOneId, access: 'auth' }, 'abc123').toString()
+        token: jwt.sign({ _id: userOneId, access: 'auth' }, 'abc123').toString()
       }
     ]
   },
@@ -24,6 +24,7 @@ const users = [
     password: '11234133456'
   }
 ];
+
 const todos = [
   {
     _id: new ObjectID(),
